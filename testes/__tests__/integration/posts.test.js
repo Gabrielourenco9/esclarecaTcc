@@ -4,9 +4,9 @@ const api = require('../../services/api')
 describe('POST_New', () =>{
     it('Novo POST e retornar status 204', async () =>{
         const response = await api.post(`/posts`, {
-            title, desc, tags
+        title:"testepost", desc:"testedesc", tags:"Node"
           }, {
-            headers: { user_id, type }
+            headers:{user_id: "5ef948bfb9ba3d443c82e9f7", type: false }
           })    
 
         //console.log(""); 
@@ -18,8 +18,8 @@ describe('POST_New', () =>{
 describe('POST_ListAll', () =>{
     it('Listar todos POSTs e retornar status 204', async () =>{
         const response = await api.get('/posts', {
-            headers: { user_id, type, search_text: searchText, search_type: searchType },
-            params: { page }
+            headers: { user_id:"5f35e2e48973d417809ddb70", type:false , search_text: "", search_type: "" },
+            params: { page:1 }
         })
 
         //console.log(""); 
@@ -30,9 +30,9 @@ describe('POST_ListAll', () =>{
 //CURTIR POST
 describe('POST_LIKE', () =>{
     it('Curtir POST e retornar status 204', async () =>{
-        const response = await api.post(`/posts/${postId}/like`, {
+        const response = await api.post(`/posts/5edeecb5c36e0121042cf2e2/like`, {
         }, {
-            headers: { user_id }
+            headers: { user_id:"5ecdd1c0fa5c0107e0a63f9d" }
         })
 
         //console.log(""); 
@@ -43,8 +43,8 @@ describe('POST_LIKE', () =>{
 //LISTAR POST
 describe('POST_LIST', () =>{
     it('LISTAR POST e retornar status 204', async () =>{
-        const response = await api.get(`/post/${post._id}`, {
-            headers: { user_id }
+        const response = await api.get(`/post/5edeecb5c36e0121042cf2e2`, {
+            headers: { user_id:"5f35e2e48973d417809ddb70" }
         })
 
         //console.log(""); 
@@ -55,8 +55,8 @@ describe('POST_LIST', () =>{
 //DELETE POST
 describe('POST_DELETE', () =>{
     it('DELETAR POST e retornar status 204', async () =>{
-        const response = await api.delete(`/posts/${post._id}`, {
-            headers: { user_id }
+        const response = await api.delete(`/posts/5efbd7e873dd1b11484ecc56`, {
+            headers: { user_id:"5ef948bfb9ba3d443c82e9f7" }
         })
 
         //console.log(""); 

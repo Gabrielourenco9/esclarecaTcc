@@ -39,8 +39,8 @@ describe('Users_Ranking', () =>{
 describe('Users_All', () =>{
     it('Listar todos usuários e retornar status 204', async () =>{
         const response = await api.get(`/users`, {
-            headers: { search_text: searchText },
-            params: { page }
+            headers: { search_text: "" },
+            params: { page:1 }
         })
 
         //console.log(""); 
@@ -51,7 +51,7 @@ describe('Users_All', () =>{
 //LISTAR Bloqueados
 describe('Users_ListBlocks', () =>{
     it('Listar bloqueados e retornar status 204', async () =>{
-        const response = await api.get(`/users/${usuarioAtual}`, {})
+        const response = await api.get(`/users/5f0ce694a8119330ecc59fa9`, {})
 
         //console.log(""); 
         expect(response.status).toBe(204);
@@ -61,7 +61,7 @@ describe('Users_ListBlocks', () =>{
 //Bloquear usuário
 describe('Users_Blocks', () =>{
     it('Bloquear usuário e retornar status 204', async () =>{
-        const response = await api.post(`/users/${uId}/block`, {}, { headers: { user_id: usuarioAtual } })
+        const response = await api.post(`/users/5f4ee58a569cb22e84ae5b14/block`, {}, { headers: { user_id: "5f0ce694a8119330ecc59fa9" } })
 
         //console.log(""); 
         expect(response.status).toBe(204);
